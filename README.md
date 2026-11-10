@@ -15,7 +15,37 @@ Work individually, in pairs, or in ad hoc groups of 2-3 formed from the people p
 The starter includes the unchanged nexus2 source and tests from CS5320/project-nexus-atlas at commit 75a8d145aa5bc0c92725197c0e4e9883491c542f. CustomerLifecycleService publishes the trimmed reason in customer.deactivated. CustomerNotificationSubscriber copies it into the simulated customer message. The NEW teaching requirement treats the reason as internal information. The baseline was not previously subject to that policy.
 
 
-### Setup: no dependency installation for the core lab
+### Codespaces: recommended classroom setup
+
+1. Sign in to GitHub. **Fork** this repository to your own account so your commits go to your copy.
+2. On your fork, select **Code → Codespaces → Create codespace on main**. Use the smallest available machine.
+3. Wait for setup to finish. The included configuration supplies Python 3.12, the Python editor extension, and installs the project and pytest.
+4. Open **Terminal → New Terminal**. From the repository root, run:
+
+```bash
+cd nexus2
+python run_lab.py
+```
+
+Expect **four passes and four failures** on the untouched starter. These failures are the work of the lab, not a Codespaces setup failure. There is no web app to launch, port to forward, database to configure, or local Python installation needed.
+
+The original regression suite is separate:
+
+```bash
+python -m pytest tests
+```
+
+It initially has 23 passing tests. As you implement the new requirement, update the one notification-message expectation authorized below. Do not delete unrelated checks.
+
+If dependency installation fails, the core `python run_lab.py` command still needs only Python. For the original suite, retry `python -m pip install --user -e ".[dev]"` from `nexus2`. If your Codespace predates this configuration, save your files, fetch the updated configuration into your fork, then run **Codespaces: Rebuild Container** from the Command Palette.
+
+**Groups:** one student can host the working Codespace and share their screen while partners trace, design and test. A Codespace is not automatically a shared editing session. Rotate participation and give every contributor access to the saved code and results. All writeups remain individual.
+
+**Before leaving:** save files, record actual output in the root `evidence.md`, and commit/push to your own fork using Source Control. Check that the remote belongs to your account before pushing. Share the fork link with your partners; no pull request to the class starter is required. Stop the Codespace from [Your Codespaces](https://github.com/codespaces) and reopen that same Codespace Thursday. Closing the browser tab does not stop it. Do not delete it until your work is safely pushed or downloaded.
+
+Codespaces availability depends on your account's allowance and any organization restrictions. If creation is blocked, join a partner's working environment or use the local setup below.
+
+### Local setup: no dependency installation for the core lab
 
 Clone this repository, then run the lab from its `nexus2` directory:
 

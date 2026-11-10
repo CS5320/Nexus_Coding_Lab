@@ -1,0 +1,21 @@
+{
+  "name": "Nexus coding lab — Python 3.12",
+  "image": "mcr.microsoft.com/devcontainers/python:3.3.2-3.12-bookworm",
+  "postCreateCommand": "python -m pip install --user -e './nexus2[dev]'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.cwd": "${workspaceFolder}/nexus2",
+        "python.testing.pytestArgs": [
+          "tests"
+        ]
+      }
+    }
+  }
+}
